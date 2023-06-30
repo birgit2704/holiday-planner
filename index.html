@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Holiday Planner</title>
+    <link rel="stylesheet" href="index.css" />
+    <script src="index.js" type="module" defer></script>
+  </head>
+
+  <body>
+    <div class="general-container">
+      <header>
+        <h1>VACATION BOT</h1>
+      </header>
+
+      <main>
+        <img src="./images/icons8-bot-96.png" />
+        <div class="talk" id="talk">
+          <!-- Conversation here -->
+        </div>
+      </main>
+
+      <footer>
+        <a target="_blank" href="https://icons8.com/icon/59023/bot">Bot</a> icon
+        by <a target="_blank" href="https://icons8.com">Icons8</a
+        ><span> ----</span>
+        <a target="_blank" href="https://icons8.com/icon/32582/greece"
+          >Greece</a
+        >
+        icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+      </footer>
+    </div>
+    <div class="modal" id="modal-1">
+      <p>Enter your name</p>
+      <form id="form">
+        <input
+          type="text"
+          name="fullname"
+          placeholder="your full name"
+          aria-label="full name"
+          required
+        />
+        <div class="button-container" id="button-container">
+          <button class="form-btn" type="submit">Accept*</button>
+          <button type="button" class="form-btn" id="decline-btn">
+            Decline
+          </button>
+        </div>
+        <p class="small">
+          *by pressing "Accept" I agree that vacation bot searches and uses all
+          data it can find of me on the web
+        </p>
+      </form>
+    </div>
+    <div class="modal" id="modal-2">
+      <p>Analyzing...</p>
+      <img src="./images/loading.svg" alt="loading indicator" />
+      <div id="searches"></div>
+    </div>
+    <div id="modal-3" class="modal">
+      <p class="arial">
+        Of course, all of this was utter nonsense... <strong>No</strong> booking
+        has been made.<br /><br />
+        But if you have the opportunity to go to Greece, do so! It <i>is</i> a
+        wonderful country.
+      </p>
+    </div>
+    <div id="modal-4" class="modal">
+      <p>Enter your name</p>
+      <form id="booking-form">
+        <input
+          type="text"
+          name="fullname"
+          placeholder="your full name"
+          aria-label="full name"
+          required
+        />
+        <button class="form-btn" type="submit">Book now*</button>
+
+        <p class="small">
+          *no need to enter more details like credit card number etc. I'll get
+          everything from the web. I am AI after all.
+        </p>
+      </form>
+    </div>
+  </body>
+</html>
