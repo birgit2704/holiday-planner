@@ -13,12 +13,9 @@ document.addEventListener("click", function (e) {
     talk.innerHTML = `<p>Choose your preferred destination</p>
     <button id="greece-btn">Greece<img src="./images/icons8-greece-48.png" class="greece-flag"/></button>
     <button id="other">Other destination</button>`;
-  }
-  if (e.target.id === "no-btn") {
+  } else if (e.target.id === "no-btn") {
     talk.innerHTML = `<p>so why did you open this app anyway???</p><button id="return">Return</button>`;
-  }
-
-  if (e.target.id === "return") {
+  } else if (e.target.id === "return") {
     talk.innerHTML = `
         <p>hi, i am vacation bot</p>
         <p> i am here to help you</p>
@@ -26,24 +23,18 @@ document.addEventListener("click", function (e) {
         <button id="yes-btn">Yes, help me</button>
       <button id="no-btn">No, go away and leave me alone</button>
         `;
-  }
-  if (e.target.id === "greece-btn") {
+  } else if (e.target.id === "greece-btn") {
     modal4.style.display = "block";
-  }
-  if (e.target.id === "no-search") {
+  } else if (e.target.id === "no-search") {
     modal4.style.display = "block";
-  }
-
-  if (e.target.id === "other") {
+  } else if (e.target.id === "other") {
     talk.innerHTML = `<p>Do you wish to get a personalized suggestion, based on the data I find of you on the web?</p>
     <button id="yes-search">Search the web</button>
     <button id="no-search">No, don't search the web, I'll go to Greece<img src="./images/icons8-greece-48.png" class="greece-flag"/></button>
     `;
-  }
-  if (e.target.id === "yes-search") {
+  } else if (e.target.id === "yes-search") {
     modal1.style.display = "block";
-  }
-  if (e.target.id === "book-now") {
+  } else if (e.target.id === "book-now") {
     modal2.innerHTML = `<img id="spinner" src="./images/loading.svg">
     <p class="medium">Booking super-expensive holiday in Greece for you</p> <h1>${formData.get(
       "fullname"
@@ -59,9 +50,26 @@ document.addEventListener("click", function (e) {
       <p class="medium arial">For every booking made, Vacation Bot receives 5GB memory space on Greek servers</p>
       <button id='disclaimer'>Disclaimer</button>`;
     }, 9000);
-  }
-  if (e.target.id === "disclaimer") {
+  } else if (e.target.id === "disclaimer") {
     document.getElementById("modal-3").style.display = "block";
+  } else if (e.target.id === "start-again") {
+    this.location.reload();
+  } else if (e.target.id === "no-book") {
+    modal2.innerHTML = `<img id="spinner" src="./images/loading.svg">
+    <p class="medium">Booking super-expensive holiday in Greece for you</p> <h1>${formData.get(
+      "fullname"
+    )}</h1><p class="medium">with your credit card details which I got from the web</p>`;
+
+    setTimeout(function () {
+      modal2.innerHTML = `<h2>Congratulations!</h2> <p class="medium">Vacation is booked.</p><p class="medium">Details will follow via email.</p>`;
+    }, 4500);
+    setTimeout(function () {
+      modal2.style.display = "none";
+      modal1.style.display = "none";
+      talk.innerHTML = `<p class="arial bold">Vacation Bot is sponsored by the Greek Board of Tourism</p>
+      <p class="medium arial">For every booking made, Vacation Bot receives 5GB memory space on Greek servers</p>
+      <button id='disclaimer'>Disclaimer</button>`;
+    }, 9000);
   }
 });
 
@@ -73,12 +81,24 @@ document
     document.getElementById("button-container").classList.toggle("reverse");
   });
 
+document.addEventListener("mouseover", function (e) {
+  if (e.target.id === "no-book") {
+    document.getElementById("no-book").textContent = "BOOK !!!!";
+  }
+});
+
+document.addEventListener("mouseout", function (e) {
+  if (e.target.id === "no-book") {
+    document.getElementById("no-book").textContent = "Don't book";
+  }
+});
+
 // EVENT LISTENERS - SUBMIT
 document
   .getElementById("booking-form")
   .addEventListener("submit", function (e) {
     e.preventDefault();
-    modal4.innerHTML = `<h1>Congratulations!</h1> <p class="medium">Vacation is booked at an exorbitant price.</p><p class="medium">Details will follow via email.</p>`;
+    modal4.innerHTML = `<h2>Congratulations!</h2> <p class="medium">Vacation is booked at an exorbitant price.</p><p class="medium">Details will follow via email.</p>`;
     setTimeout(function () {
       modal4.style.display = "none";
       talk.innerHTML = `<p class="arial bold">Vacation Bot is sponsored by the Greek Board of Tourism</p>
@@ -117,7 +137,7 @@ document.getElementById("form").addEventListener("submit", function (e) {
   }, 12000);
   setTimeout(function () {
     modal2.innerHTML += `<button class="form-btn book-btn" id="book-now">Book now</button>
-    <button class="form-btn book-btn" disabled>Don't book</button>`;
+    <button class="form-btn book-btn" id="no-book">Don't book</button>`;
   }, 13000);
 });
 
