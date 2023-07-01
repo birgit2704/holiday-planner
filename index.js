@@ -64,8 +64,7 @@ document.addEventListener("click", function (e) {
   }
 });
 
-// EVENT LISTENERS - MOUSEENTER
-
+// EVENT LISTENERS - MOUSEENTER - MOUSEOVER - MOUSEOUT
 document
   .getElementById("decline-btn")
   .addEventListener("mouseenter", function () {
