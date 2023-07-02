@@ -1,3 +1,6 @@
+// this code has grown like weed...
+// I'll refactor it in the coming days, promise!
+
 import { texts } from "./data.js";
 
 const talk = document.getElementById("talk");
